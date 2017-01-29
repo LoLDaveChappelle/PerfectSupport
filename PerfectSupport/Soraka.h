@@ -137,6 +137,11 @@ public:
 	{
 		GGame->SendPing(kPingOnMyWay, Vec3(255, 255, 255));
 	}
+	
+	void SorakaExploit()
+	{
+    	https://www.youtube.com/watch?v=NN75im_us4k
+	}
 
 
 	void Drawing()
