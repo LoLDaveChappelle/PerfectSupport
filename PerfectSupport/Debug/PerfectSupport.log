@@ -1,0 +1,6 @@
+﻿  Soraka.cpp
+c:\users\everett\documents\visual studio 2015\projects\perfectsupport\perfectsupport\color.h(19): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+c:\users\everett\documents\visual studio 2015\projects\perfectsupport\perfectsupport\color.h(24): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+     Creating library c:\users\everett\documents\visual studio 2015\Projects\PerfectSupport\Debug\PerfectSupport.lib and object c:\users\everett\documents\visual studio 2015\Projects\PerfectSupport\Debug\PerfectSupport.exp
+  PerfectSupport.vcxproj -> c:\users\everett\documents\visual studio 2015\Projects\PerfectSupport\Debug\PerfectSupport.dll
+  PerfectSupport.vcxproj -> c:\users\everett\documents\visual studio 2015\Projects\PerfectSupport\Debug\PerfectSupport.pdb (Full PDB)
