@@ -140,7 +140,7 @@ public:
 	
 	void SorakaExploit()
 	{
-    	https://www.youtube.com/watch?v=NN75im_us4k
+    	//https://www.youtube.com/watch?v=NN75im_us4k
 	}
 
 
