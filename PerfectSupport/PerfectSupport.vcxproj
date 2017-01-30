@@ -146,10 +146,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Blitzcrank.h" />
+    <ClInclude Include="Brand.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="Leona.h" />
     <ClInclude Include="LPPConstants.h" />
+    <ClInclude Include="Nami.h" />
     <ClInclude Include="PluginData.h" />
     <ClInclude Include="PluginSDK.h" />
+    <ClInclude Include="Sona.h" />
     <ClInclude Include="Soraka.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />

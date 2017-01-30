@@ -1,14 +1,15 @@
 #pragma once
 #include "PluginSDK.h"
+#include "Blitzcrank.h"
 
 
-class Soraka
+class Sona
 {
 public:
 
 	void  Menu()
 	{
-		MainMenu = GPluginSDK->AddMenu("PerfectSoraka");
+		MainMenu = GPluginSDK->AddMenu("PerfectSona");
 		QMenu = MainMenu->AddMenu("Q Settings");
 		WMenu = MainMenu->AddMenu("W Settings");
 		EMenu = MainMenu->AddMenu("E Settings");
@@ -40,10 +41,6 @@ public:
 		W = GPluginSDK->CreateSpell2(kSlotW, kTargetCast, false, false, static_cast<eCollisionFlags>(kCollidesWithNothing));
 		E = GPluginSDK->CreateSpell2(kSlotE, kCircleCast, false, false, static_cast<eCollisionFlags>(kCollidesWithNothing));
 		R = GPluginSDK->CreateSpell2(kSlotR, kCircleCast, false, true, static_cast<eCollisionFlags>(kCollidesWithNothing));
-		Q->SetOverrideRange(800);
-		W->SetOverrideRange(550);
-		E->SetOverrideRange(900);
-		R->SetOverrideRange(600);
 
 	}
 
@@ -92,6 +89,11 @@ public:
 			if (GEntityList->Player()->IsValidTarget(ally, W->Range()) && W->IsReady() && ally->HealthPercent() <= 55)
 			{
 				W->CastOnTarget(ally);
+
+			}
+			if (GEntityList->Player()->IsValidTarget(ally, W->Range()) && W->IsReady() && ally->HealthPercent() <= 55)
+			{
+				E->CastOnTarget(ally);
 			}
 		}
 	}
@@ -108,7 +110,7 @@ public:
 		}
 		if (ComboW->Enabled())
 		{
-				WLogic();
+			WLogic();
 		}
 		if (ComboE->Enabled())
 		{

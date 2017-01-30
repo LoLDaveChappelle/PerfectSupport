@@ -1,14 +1,15 @@
 #pragma once
 #include "PluginSDK.h"
+#include "Blitzcrank.h"
 
 
-class Soraka
+class Leona
 {
 public:
 
 	void  Menu()
 	{
-		MainMenu = GPluginSDK->AddMenu("PerfectSoraka");
+		MainMenu = GPluginSDK->AddMenu("PerfectBrand");
 		QMenu = MainMenu->AddMenu("Q Settings");
 		WMenu = MainMenu->AddMenu("W Settings");
 		EMenu = MainMenu->AddMenu("E Settings");
@@ -37,13 +38,9 @@ public:
 	void LoadSorakaSpells()
 	{
 		Q = GPluginSDK->CreateSpell2(kSlotQ, kCircleCast, false, false, static_cast<eCollisionFlags>(kCollidesWithYasuoWall));
-		W = GPluginSDK->CreateSpell2(kSlotW, kTargetCast, false, false, static_cast<eCollisionFlags>(kCollidesWithNothing));
-		E = GPluginSDK->CreateSpell2(kSlotE, kCircleCast, false, false, static_cast<eCollisionFlags>(kCollidesWithNothing));
+		W = GPluginSDK->CreateSpell2(kSlotW, kCircleCast, false, false, static_cast<eCollisionFlags>(kCollidesWithNothing));
+		E = GPluginSDK->CreateSpell2(kSlotE, kLineCast, false, false, static_cast<eCollisionFlags>(kCollidesWithNothing));
 		R = GPluginSDK->CreateSpell2(kSlotR, kCircleCast, false, true, static_cast<eCollisionFlags>(kCollidesWithNothing));
-		Q->SetOverrideRange(800);
-		W->SetOverrideRange(550);
-		E->SetOverrideRange(900);
-		R->SetOverrideRange(600);
 
 	}
 
@@ -85,19 +82,16 @@ public:
 		return true;
 	}
 
-	void WLogic()
-	{
-		for (auto ally : GEntityList->GetAllHeros(true, false))
-		{
-			if (GEntityList->Player()->IsValidTarget(ally, W->Range()) && W->IsReady() && ally->HealthPercent() <= 55)
-			{
-				W->CastOnTarget(ally);
-			}
-		}
-	}
-
 	void Combo()
 	{
+		if (ComboE->Enabled())
+		{
+			if (E->IsReady())
+			{
+				auto target = GTargetSelector->FindTarget(QuickestKill, SpellDamage, E->Range());
+				E->CastOnTarget(target, kHitChanceHigh);
+			}
+		}
 		if (ComboQ->Enabled())
 		{
 			if (Q->IsReady())
@@ -108,15 +102,8 @@ public:
 		}
 		if (ComboW->Enabled())
 		{
-				WLogic();
-		}
-		if (ComboE->Enabled())
-		{
-			if (E->IsReady())
-			{
-				auto target = GTargetSelector->FindTarget(QuickestKill, SpellDamage, E->Range());
-				E->CastOnTarget(target, kHitChanceHigh);
-			}
+			auto target = GTargetSelector->FindTarget(QuickestKill, SpellDamage, W->Range());
+			W->CastOnTarget(target, kHitChanceHigh);
 		}
 		if (ComboR->Enabled())
 		{

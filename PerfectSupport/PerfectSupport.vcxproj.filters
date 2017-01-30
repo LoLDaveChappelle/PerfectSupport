@@ -45,6 +45,18 @@
     <ClInclude Include="Soraka.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Nami.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sona.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Brand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Leona.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
